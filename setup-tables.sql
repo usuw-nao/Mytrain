@@ -36,3 +36,5 @@ detail varchar(255)  not null,
 place varchar(60) not null,
 day date not null
 );
+
+UPDATE adult SET ivent = ivent + 1 WHERE id = 1;

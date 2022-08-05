@@ -22,7 +22,7 @@ public class IventDaoImpl implements IventDao {
 	public List<Ivent> findAll() throws Exception {
 		List<Ivent> iventList = new ArrayList<>();
 		try (Connection con = ds.getConnection()) {
-			String sql = "select * from ivent";
+			String sql = "select * from ivent order by day asc";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {

@@ -34,26 +34,63 @@ public class AdultUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		boolean isError = false;
 		// フォームでの入力値を取得して、整理？adultに入れていく？
-		Adult adult = new Adult();
+		// newadultをすると新しくなるからセッションからとってくるといい
+		Adult adult = (Adult) request.getSession().getAttribute("adult");
 		adult.setId(Integer.parseInt(request.getParameter("id")));
-		adult.setAddress(request.getParameter("address"));
-		adult.setEmail(request.getParameter("email"));
-		adult.setNickName(request.getParameter("nick_name"));
-		adult.setLogin(request.getParameter("login_id"));
-		
-		//セッションの上書きをしよう
-		request.getSession().setAttribute("adult", adult);		
-		
+		// adult.setAddress(request.getParameter("address"));
+
+		String address = request.getParameter("address");
+		request.setAttribute("address", address);
+		if (address.isBlank()) {
+			request.setAttribute("addressError", "住所が未入力です");
+			isError = true;
+		}
+		// adult.setEmail(request.getParameter("email"));
+		String email = request.getParameter("email");
+		request.setAttribute("email", email);
+		if (email.isBlank()) {
+			request.setAttribute("emailError", "Emailアドレスが未入力です");
+			isError = true; // 入力に不備ありと判定
+		} else if (email.length() > 50) {
+			request.setAttribute("emailError", "50 字以内で入力してください。");
+			isError = true;
+		}
+		// adult.setNickName(request.getParameter("nick_name"));
+		String nickName = request.getParameter("nick_name");
+		request.setAttribute("nickName", nickName);
+		if (nickName.isBlank()) {
+			request.setAttribute("nickNameError", "ニックネームが未入力です");
+			isError = true; // 入力に不備ありと判定
+		} else if (nickName.length() > 10) {
+			request.setAttribute("nickNameError", "10 字以内で入力してください。");
+			isError = true;
+		}
+
+		// adult.setLogin(request.getParameter("login_id"));
+		String login = request.getParameter("login_id");
+		request.setAttribute("login", login);
+		if (login.isBlank()) {
+			request.setAttribute("loginError", "ログインIDが未入力です");
+			isError = true; // 入力に不備ありと判定
+		} else if (login.length() > 10) {
+			request.setAttribute("loginError", "10 字以内で入力してください。");
+			isError = true;
+		}
+
+		// セッションの上書きをしよう
+		request.getSession().setAttribute("adult", adult);
 
 		try {
-			DaoFactory.createAdultDao().update(adult.getId(),adult.getAddress(), adult.getEmail(), adult.getNickName(),
+			DaoFactory.createAdultDao().update(adult.getId(), adult.getAddress(), adult.getEmail(), adult.getNickName(),
 					adult.getLogin());
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		response.sendRedirect(request.getContextPath()+"/AdultInf");
+		response.sendRedirect(request.getContextPath() + "/AdultUpdateDone");
 
 	}
 

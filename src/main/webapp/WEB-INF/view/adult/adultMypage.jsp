@@ -13,6 +13,7 @@
 	<p><a href="AdultInf">個人情報確認・変更</a></p>
 	<p>定期の範囲</p>
 	<p><a href="IventTop">イベント</a></p>
+	<p><a href="IventMy">参加予定のイベント</a></p>
 	<p>ポイント</p>
 	<p>クイズ！</p>
 	<p>新幹線予約</p>

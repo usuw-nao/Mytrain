@@ -81,7 +81,7 @@ public class AdultDaoImpl implements AdultDao {
 		return adult;
 
 	}
-	//Idの分を入れて5個にしようね！
+	// Idの分を入れて5個にしようね！
 
 	@Override
 	public void update(Integer id, String login, String nickName, String email, String address) throws Exception {
@@ -93,7 +93,21 @@ public class AdultDaoImpl implements AdultDao {
 			stmt.setString(3, email);
 			stmt.setString(4, address);
 			stmt.setObject(5, id, Types.INTEGER);
-			
+
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		}
+
+	}
+
+	@Override
+	public void update(Integer id) throws Exception {
+		try (Connection con = ds.getConnection()) {
+			String sql = "update adult set ivent = "
+		                + " ivent + 1 where id=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setObject(1, id);
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			throw e;

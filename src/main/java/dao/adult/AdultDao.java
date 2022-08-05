@@ -17,6 +17,9 @@ public interface AdultDao {
 	// 更新（住所、メールアドレス、ニックネーム、パス）
 	void update(Integer id, String login, String nickName, String email, String address) throws Exception;
 
+	// イベントに参加したら回数が増える
+	void update(Integer id) throws Exception;
+
 	// 削除
 	void delete(int id, String login) throws Exception;
 

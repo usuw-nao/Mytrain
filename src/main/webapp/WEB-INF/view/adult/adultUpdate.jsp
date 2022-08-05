@@ -16,10 +16,10 @@
 
 
 		<p>
-			ログインID <input type="text" name="login">
+			ログインID <input type="text" name="login_id">
 		</p>
 		<p>
-			ニックネーム <input type="text" name="nickName">
+			ニックネーム <input type="text" name="nick_name">
 		</p>
 
 		<p>
@@ -28,7 +28,7 @@
 		<p>
 			住所 <input type="text" name="address">
 		</p>
-		<input type="hidden" name="id">
+		<input type="hidden" name="id" value="${adult.id}">
 		
 
 

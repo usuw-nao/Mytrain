@@ -1,19 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
-<title>イベント情報トップ</title>
+<title>参加予定のイベント</title>
 </head>
 <body>
-	<h1>イベント情報</h1>
-	<h2>お知らせ</h2>
-	<br>
-	<h2>開催予定イベント</h2>
-	<table border="1">
+<h1>参加予定のイベント</h1>
+<table border="1">
 		<tr>
 			<th>NO.</th>
 			<th>イベント名</th>
@@ -28,17 +25,14 @@
 				<td><c:out value="${ivent.name }" /></td>
 				<td><c:out value="${ivent.day }" /></td>
 				<td><c:out value="${ivent.place}" /></td>
-				<td><a href="IventDo?id=<c:out value="${ivent.id }" />">詳細</a></td>
+				<td><c:out value="${ivent.detail }" /></td>
 
 			</tr>
 		</c:forEach>
 
 	</table>
-	<p>
-		<a href="AdultMypage">マイページに戻る</a>
-	</p>
 
-
+	
 
 </body>
 </html>
