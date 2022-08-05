@@ -36,6 +36,7 @@ public class AdultUpdateServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// フォームでの入力値を取得して、整理？adultに入れていく？
 		Adult adult = new Adult();
+		adult.setId(Integer.parseInt(request.getParameter("id")));
 		adult.setAddress(request.getParameter("address"));
 		adult.setEmail(request.getParameter("email"));
 		adult.setNickName(request.getParameter("nick_name"));
@@ -46,11 +47,11 @@ public class AdultUpdateServlet extends HttpServlet {
 		
 
 		try {
-			DaoFactory.createAdultDao().update(adult.getAddress(), adult.getEmail(), adult.getNickName(),
+			DaoFactory.createAdultDao().update(adult.getId(),adult.getAddress(), adult.getEmail(), adult.getNickName(),
 					adult.getLogin());
 
 		} catch (Exception e) {
-			throw new ServletException(e);
+			e.printStackTrace();
 		}
 		response.sendRedirect(request.getContextPath()+"/AdultInf");
 

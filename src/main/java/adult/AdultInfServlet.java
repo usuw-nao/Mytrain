@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 /**
  * Servlet implementation class AdultInfServlet
  */
@@ -24,8 +22,8 @@ public class AdultInfServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-			// セッションに情報は格納されている
-			request.getRequestDispatcher("/WEB-INF/view/adult/adultInf.jsp").forward(request, response);
+		// セッションに情報は格納されている
+		request.getRequestDispatcher("/WEB-INF/view/adult/adultInf.jsp").forward(request, response);
 
 	}
 
@@ -35,8 +33,7 @@ public class AdultInfServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
 	}
 
 }

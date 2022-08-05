@@ -28,6 +28,8 @@
 		<p>
 			住所 <input type="text" name="address">
 		</p>
+		<input type="hidden" name="id">
+		
 
 
 

@@ -39,8 +39,10 @@ public class AdultLogin extends HttpServlet {
 			AdultDao adultDao = DaoFactory.createAdultDao();
 			Adult adult = adultDao.findByLoginAndPass(login, pass);
 			if (adult != null) {
+				
 				request.getSession().setAttribute("adult", adult);
 				response.sendRedirect(request.getContextPath() + "/AdultMypage");
+				
 			} else {
 				request.setAttribute("error", true);
 				request.getRequestDispatcher("/WEB-INF/view/adult/adultLogin.jsp").forward(request, response);

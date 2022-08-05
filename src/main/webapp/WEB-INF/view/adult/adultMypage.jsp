@@ -12,12 +12,12 @@
 	<h1>ようこそ</h1>
 	<p><a href="AdultInf">個人情報確認・変更</a></p>
 	<p>定期の範囲</p>
-	<p>イベント</p>
+	<p><a href="IventTop">イベント</a></p>
 	<p>ポイント</p>
 	<p>クイズ！</p>
 	<p>新幹線予約</p>
 	
-	
+	<p><a href="AdultLogout">ログアウト</a></p>
 
 
 </body>

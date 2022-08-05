@@ -8,6 +8,9 @@ public class DaoFactory {
 	public static dao.adult.AdultDao createAdultDao() {
 		return new dao.adult.AdultDaoImpl(getDataSource());
 	}
+	public static dao.IventDao createIventDao() {
+		return new dao.IventDaoImpl(getDataSource());
+	}
 
 	private static DataSource getDataSource() {
 		InitialContext ctx = null;

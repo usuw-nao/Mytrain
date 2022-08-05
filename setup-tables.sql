@@ -27,3 +27,12 @@ INSERT INTO adult VALUES
  'さっぽろ',1,'sapporo@example.com',10,'北海道札幌','北海道札幌函館利尻',
  50,2,'函館から札幌経由稚内経由利尻',20220801,20221031
  );
+
+ //イベントテーブル作成
+ create table ivent (
+id int primary key auto_increment,
+name varchar(30) not null,
+detail varchar(255)  not null,
+place varchar(60) not null,
+day date not null
+);

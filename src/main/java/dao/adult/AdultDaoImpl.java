@@ -1,7 +1,7 @@
 package dao.adult;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Types;
@@ -81,17 +81,19 @@ public class AdultDaoImpl implements AdultDao {
 		return adult;
 
 	}
+	//Idの分を入れて5個にしようね！
 
 	@Override
-	public void update(int id, String pass, String nickName, String email, String address) throws Exception {
+	public void update(Integer id, String login, String nickName, String email, String address) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "update adult set login_pass=?, nick_name=?, email=?, address=? where id=?";
+			String sql = "update adult set login_id=?, nick_name=?, email=?, address=? where id=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, pass);
+			stmt.setString(1, login);
 			stmt.setString(2, nickName);
 			stmt.setString(3, email);
 			stmt.setString(4, address);
-			stmt.setInt(5, id);
+			stmt.setObject(5, id, Types.INTEGER);
+			
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			throw e;
@@ -134,7 +136,7 @@ public class AdultDaoImpl implements AdultDao {
 		}
 
 	}
-//定期範囲達をいれてあげて
+
 	private Adult mapToAdult(ResultSet rs) throws Exception {
 		Adult adult = new Adult();
 		adult.setId(rs.getInt("id"));
@@ -146,6 +148,11 @@ public class AdultDaoImpl implements AdultDao {
 		adult.setName(rs.getString("name"));
 		adult.setAddress(rs.getString("address"));
 		adult.setAge(rs.getInt("age"));
+		adult.setIvent(rs.getInt("ivent"));
+		adult.setDistance(rs.getString("distance"));
+		adult.setStartDate(rs.getDate("start_date"));
+		adult.setEndDate(rs.getDate("end_date"));
+
 		return adult;
 	}
 
