@@ -8,8 +8,17 @@ public class DaoFactory {
 	public static dao.adult.AdultDao createAdultDao() {
 		return new dao.adult.AdultDaoImpl(getDataSource());
 	}
+
 	public static dao.IventDao createIventDao() {
 		return new dao.IventDaoImpl(getDataSource());
+	}
+
+	public static dao.adult.AdultQuizDao createAdultQuizDao() {
+		return new dao.adult.AdultQuizDaoImpl(getDataSource());
+	}
+
+	public static dao.IventMutterDao createIventMutterDao() {
+		return new dao.IventMutterDaoImpl(getDataSource());
 	}
 
 	private static DataSource getDataSource() {

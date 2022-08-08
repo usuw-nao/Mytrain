@@ -19,6 +19,8 @@ public interface AdultDao {
 
 	// イベントに参加したら回数が増える
 	void update(Integer id) throws Exception;
+	//クイズに正解したらポイントが１０増える
+	void update2(Integer id)throws Exception;
 
 	// 削除
 	void delete(int id, String login) throws Exception;

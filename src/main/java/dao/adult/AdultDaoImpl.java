@@ -104,8 +104,20 @@ public class AdultDaoImpl implements AdultDao {
 	@Override
 	public void update(Integer id) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "update adult set ivent = "
-		                + " ivent + 1 where id=?";
+			String sql = "update adult set ivent = " + " ivent + 1 where id=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setObject(1, id);
+			stmt.executeUpdate();
+		} catch (Exception e) {
+			throw e;
+		}
+
+	}
+
+	@Override
+	public void update2(Integer id) throws Exception {
+		try (Connection con = ds.getConnection()) {
+			String sql = "update adult set point = " + " point + 10 where id=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setObject(1, id);
 			stmt.executeUpdate();
@@ -163,6 +175,7 @@ public class AdultDaoImpl implements AdultDao {
 		adult.setAddress(rs.getString("address"));
 		adult.setAge(rs.getInt("age"));
 		adult.setIvent(rs.getInt("ivent"));
+		adult.setPoint(rs.getInt("point"));
 		adult.setDistance(rs.getString("distance"));
 		adult.setStartDate(rs.getDate("start_date"));
 		adult.setEndDate(rs.getDate("end_date"));
