@@ -9,8 +9,8 @@
 <title>参加予定のイベント</title>
 </head>
 <body>
-<h1>参加予定のイベント</h1>
-<table border="1">
+	<h1>参加予定のイベント</h1>
+	<table border="1">
 		<tr>
 			<th>NO.</th>
 			<th>イベント名</th>
@@ -31,8 +31,17 @@
 		</c:forEach>
 
 	</table>
+	<button id="btn">ボタン</button>
 
-	
 
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('#btn').click(function(){
+			$('h1').html();
+		});// #btn.click
+	});// ready
+	</script>
 </body>
 </html>

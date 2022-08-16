@@ -27,10 +27,10 @@
 				<c:out value="${adultQuiz.choice2}" />
 			</p>
 			<input type="hidden" name="id" value="${adultQuiz.id}">
-		
-		<p>
-			<input type="submit" value="決定">
-		</p>
+
+			<p>
+				<input type="submit" value="決定">
+			</p>
 		</c:forEach>
 	</form>
 
@@ -43,13 +43,21 @@
 		<a href="AdultRange">定期の範囲</a>
 	</p>
 	<p>
-		<a href="IventTop">イベント</a>
+		<a href="IventTop">イベント</a>--▶
+		<a href="IventMy">イベント参加予定</a>
 	</p>
-	<p>ポイント</p>連休中にやる
+	<p>
+		<a href="ScheduleTop">スケジュール</a>
+	</p>
+
+	<p>ポイント</p>
+	来週やれたらやる？
+
 	
-	<p>新幹線予約</p>
-	
-	<p><a href="AdultLogout">ログアウト</a></p>
+
+	<p>
+		<a href="AdultLogout">ログアウト</a>
+	</p>
 
 
 

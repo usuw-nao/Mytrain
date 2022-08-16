@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,12 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import dao.DaoFactory;
 import dao.IventDao;
 import dao.IventMutterDao;
-import domain.Adult;
 import domain.Ivent;
 import domain.IventMutter;
 
@@ -39,6 +37,9 @@ public class IventTopServlet extends HttpServlet {
 			// 感想をDBから取ってきて表示させる
 			IventMutterDao iventMutterDao = DaoFactory.createIventMutterDao();
 			List<IventMutter> iventMutterList = iventMutterDao.findAll();
+			
+			System.out.println(iventMutterList.size());
+			System.out.println(iventMutterList.get(0).getIventName());
 
 			request.setAttribute("iventList", iventList);
 			request.setAttribute("iventMutterList", iventMutterList);
@@ -62,14 +63,22 @@ public class IventTopServlet extends HttpServlet {
 			// 入力されたイベント名や感想を取得
 			String name = request.getParameter("name");
 			String text = request.getParameter("text");
-			String iventName=request.getParameter("ivent_name");
+			String iventName = request.getParameter("ivent_name");
 
+			request.setAttribute("name", name);
+			request.setAttribute("text", text);
+			request.setAttribute("ivent_name", iventName);
+
+			IventMutter iventMutter = new IventMutter();
+			iventMutter.setName(name);
+			iventMutter.setText(text);
+			iventMutter.setIventName(iventName);
 
 			// 感想をデータベースに登録
-			DaoFactory.createIventMutterDao().insert(null);
+			DaoFactory.createIventMutterDao().insert(iventMutter);
 
 			// doGetを呼び出す(リダイレクト)
-			response.sendRedirect("IventTop");
+			response.sendRedirect(request.getContextPath() + "/IventTop");
 
 		} catch (Exception e) {
 			throw new ServletException(e);

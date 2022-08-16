@@ -18,15 +18,33 @@ public class IventMutter {
 		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getText() {
 		return text;
 	}
 
+	public void setText(String text) {
+		this.text = text;
+	}
+
 	public String getIventName() {
 		return iventName;
 	}
+
+	public void setIventName(String iventName) {
+		this.iventName = iventName;
+	}
+
+
 }

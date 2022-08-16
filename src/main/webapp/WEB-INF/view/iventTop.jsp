@@ -44,42 +44,42 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 	<p>イベントに参加した感想を自由に教えてね！</p>
 	<form action="/TrainApp/IventTop" method="post">
 		<p>
-			<input type="text" name="name" value="${adult.nickName }">さん
+			お名前<input type="text" name="name" value="${adult.nickName }">さん
 		</p>
 		<p>
-			イベント名<select name="iventName" id="iventName">
+			イベント名<select name="ivent_name" id="ivent_name">
 				<c:forEach items="${iventList}" var="ivent">
 					<option>
 						<c:out value="${ivent.name }" />
-
-
 					</option>
 				</c:forEach>
-
 			</select>
-		</p>
 		<p>
-			感想<input type="textarea" name="text">
+			感想<input type="text" name="text">
 		</p>
-		
-		<input type="hidden" name="id" value="${ivent_mutter.id }">
+		<input type="hidden" name="id" value="${iventMutter.id }">
 		<p>
+
 			<input type="submit" value="投稿する">
 		</p>
 	</form>
-	<c:forEach items="${iventMutterList }" var="iventMutter">
-		<c:out value="${iventMutter.getText }" />
+	
+	<hr color="green">
+
+
+	<c:forEach var="iventMutter" items="${iventMutterList}">
+
+
+		<p>
+			<c:out value="${iventMutter.id}" />
+			<c:out value="${iventMutter.name}" />
+			:
+			<c:out value="${iventMutter.iventName}" />
+			:
+			<c:out value="${iventMutter.text}" />
+		</p>
 
 	</c:forEach>
-
-
-
-
-
-
-
-
-
 	<p>
 		<a href="AdultMypage">マイページに戻る</a>
 	</p>
