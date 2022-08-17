@@ -9,7 +9,15 @@
 <title>大人ログイン</title>
 </head>
 <body>
-	<h1>大人の人はこちら</h1>
+
+<a href="/TrainApp/top.jsp">
+<img class="img-thumbnail" width="96" height="27" alt="NT"
+					src="image/tn2.png"></a>
+					
+<hr color="blue">
+
+
+	<h1>大人の人</h1>
 	<c:if test="${not empty error }">
 		<p>ログインIDかパスワードが違います</p>
 	</c:if>
@@ -25,6 +33,28 @@
 		</p>
 
 	</form>
+	<footer class="bg-primary">
+		<ul class="list-style-none">
+			<li>
+				<a class="text-white" href="https://www.p/" target="_blank">TrainNet</a>
+			</li>
+			<li>
+				<a class="text-white" href="AdultLogin">大人会員様ログイン</a>
+			</li>
+			<li>
+				<a class="text-white" href="">子ども会員様ログイン</a>
+			</li>
+			<li>
+				電車検索: <a class="text-white" href="#">TNSearch</a>
+			</li>
+			<li>
+				<a class="text-white" href="#">料金表</a>
+			</li>
+		</ul>
+		<p>
+			<small>&copy Train_Net：TN All Rights Reserved.</small>
+		</p>
+	</footer>
 
 </body>
 </html>
