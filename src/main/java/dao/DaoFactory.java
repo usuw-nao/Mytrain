@@ -21,6 +21,10 @@ public class DaoFactory {
 		return new dao.IventMutterDaoImpl(getDataSource());
 	}
 
+	public static BlogTopDao createBlogTopDao() {
+		return new BlogTopDaoImpl(getDataSource());
+	}
+
 	private static DataSource getDataSource() {
 		InitialContext ctx = null;
 		DataSource ds = null;

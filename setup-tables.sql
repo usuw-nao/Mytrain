@@ -129,3 +129,14 @@ name varchar(20) not null,
 text varchar(255) not null,
 ivent_name varchar(30) not null
 );
+
+20220818
+
+create table blog (
+id int primary key auto_increment,
+name varchar(20) not null,
+title varchar(20) not null,
+text varchar(255) not null,
+id_type int ,
+bday date
+);

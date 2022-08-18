@@ -32,11 +32,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a href="/TrainApp/top.jsp" class="nav-link">ホーム</a></li>
-					<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
+					<li class="nav-item"><a href="/TrainApp/top.jsp"
+						class="nav-link">ホーム</a></li>
+					<li class="nav-item"><a href="PhotoTop" class="nav-link">フォトギャラリー</a></li>
+					<li class="nav-item"><a href="BlogTop" class="nav-link">駅長ブログ</a></li>
+					<li class="nav-item"><a href="Inf" class="nav-link">お問い合わせ</a></li>
 				</ul>
 			</div>
 		</div>
@@ -74,19 +74,21 @@
 						<h3>電車の発車確認</h3>
 						<a href="" class="btn btn-primary">電車発車確認</a>
 					</div>
-				</div><!-- .row メニュー内での横並び -->
+				</div>
+				<!-- .row メニュー内での横並び -->
 			</div>
 			<!-- メニューここまで -->
-			
+
 			<!-- インフォメーション -->
 			<div class="col-lg-4">
 				<h2>Infomation~お知らせ~</h2>
 				<p>
-				イベントスケジュールをチェックしよう！ ▶<a href="ScheduleTop">スケジュール</a>◀
+					イベントスケジュールをチェックしよう！ ▶<a href="ScheduleTop">スケジュール</a>◀
 				</p>
 			</div>
 			<!-- インフォメーションここまで -->
-		</div><!-- ./row メニューとインフォメーションを横並び -->
+		</div>
+		<!-- ./row メニューとインフォメーションを横並び -->
 	</main>
 
 
@@ -95,21 +97,13 @@
 
 	<footer class="bg-primary">
 		<ul class="list-style-none">
-			<li>
-				<a class="text-white" href="/TrainApp/top.jsp" target="_blank">TrainNet</a>
+			<li><a class="text-white" href="/TrainApp/top.jsp"
+				target="_blank">TrainNet</a></li>
+			<li><a class="text-white" href="AdultLogin">大人会員様ログイン</a></li>
+			<li><a class="text-white" href="">子ども会員様ログイン</a></li>
+			<li>電車検索: <a class="text-white" href="#">TNSearch</a>
 			</li>
-			<li>
-				<a class="text-white" href="AdultLogin">大人会員様ログイン</a>
-			</li>
-			<li>
-				<a class="text-white" href="">子ども会員様ログイン</a>
-			</li>
-			<li>
-				電車検索: <a class="text-white" href="#">TNSearch</a>
-			</li>
-			<li>
-				<a class="text-white" href="#">料金表</a>
-			</li>
+			<li><a class="text-white" href="#">料金表</a></li>
 		</ul>
 		<p>
 			<small>&copy Train_Net：TN All Rights Reserved.</small>
