@@ -7,7 +7,8 @@ public class BlogTop {
 	private String name;
 	private String title;
 	private String text;
-	private Integer idType;
+	// 記事の種類
+	private String idType;
 	private Date bday;
 
 	public Integer getId() {
@@ -33,6 +34,7 @@ public class BlogTop {
 	public void setText(String text) {
 		this.text = text;
 	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -41,11 +43,11 @@ public class BlogTop {
 		this.title = title;
 	}
 
-	public Integer getIdType() {
+	public String getIdType() {
 		return idType;
 	}
 
-	public void setIdType(Integer idType) {
+	public void setIdType(String idType) {
 		this.idType = idType;
 	}
 

@@ -9,6 +9,8 @@
 <title>トップ</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+
+
 </head>
 <body>
 
@@ -84,6 +86,9 @@
 				<h2>Infomation~お知らせ~</h2>
 				<p>
 					イベントスケジュールをチェックしよう！ ▶<a href="ScheduleTop">スケジュール</a>◀
+				</p>
+				<p>
+				<link href="html/weather.html" >
 				</p>
 			</div>
 			<!-- インフォメーションここまで -->

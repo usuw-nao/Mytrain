@@ -10,24 +10,33 @@
 <body>
 
 	<h1>ネコ駅長のブログ</h1>
+	<c:forEach items="${blogTopList}" var="blogTop">
 	<table border="3">
-		<tr>
-			<th>名前</th>
-			<th>題名</th>
-			<th>内容</th>
-			<th>日にち</th>
-
-		</tr>
-		<c:forEach items="${blogTopList }" var="watch">
+		
 			<tr>
-				<td><c:out value="${blogTopList.name }" /></td>
-				<td><c:out value="${blogTopList.title }" /></td>
-				<td><c:out value="${blogTopList.text }" /></td>
-				<td><c:out value="${blogTopList.bday }" /></td>
-
+				<th>名前</th>
+				<td><c:out value="${blogTop.name}" /></td>
 			</tr>
-		</c:forEach>
+			<tr>
+				<th>題名</th>
+				<td><c:out value="${blogTop.title}" /></td>
+			</tr>
+			<tr>
+				<th>内容</th>
+				<td><c:out value="${blogTop.text}" /></td>
+			</tr>
+			<tr>
+				<th>カテゴリー</th>
+				<td><c:out value="${blogTop.idType}" /></td>
+			</tr>
+			<tr>
+				<th>日にち</th>
+				<td><c:out value="${blogTop.bday}" /></td>
+			</tr>
 	</table>
+	</c:forEach>
+	→
+	<a href="AddBlog">記事を書く</a>
 
 
 

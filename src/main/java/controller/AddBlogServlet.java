@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +12,10 @@ import dao.DaoFactory;
 import domain.BlogTop;
 
 /**
- * Servlet implementation class BlogTopServlet
+ * Servlet implementation class AddBlogServlet
  */
-@WebServlet("/BlogTop")
-public class BlogTopServlet extends HttpServlet {
+@WebServlet("/AddBlog")
+public class AddBlogServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,19 +24,7 @@ public class BlogTopServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			BlogTopDao blogTopDao = DaoFactory.createBlogTopDao();
-			List<BlogTop> blogTopList = blogTopDao.findAll();
-			System.out.println(blogTopList);
-
-			request.setAttribute("blogTopList", blogTopList);
-			request.getRequestDispatcher("/WEB-INF/view/blogTop.jsp").forward(request, response);
-
-		} catch (Exception e) {
-			throw new ServletException(e);
-
-		}
-
+		request.getRequestDispatcher("/WEB-INF/view/addBlog.jsp").forward(request, response);
 	}
 
 	/**
@@ -47,8 +33,27 @@ public class BlogTopServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+
+		String name = request.getParameter("name");
+		String title = request.getParameter("title");
+		String text = request.getParameter("text");
+		String idType = request.getParameter("id_type");
+
+		BlogTop blogTop = new BlogTop();
+		blogTop.setName(name);
+		blogTop.setTitle(title);
+		blogTop.setText(text);
+		blogTop.setIdType(idType);
+		try {
+			BlogTopDao blogTopDao = DaoFactory.createBlogTopDao();
+			blogTopDao.insert(blogTop);
+
+			response.sendRedirect(request.getContextPath() + "/BlogTop");
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
+
 	}
 
 }
