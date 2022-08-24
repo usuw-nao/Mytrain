@@ -119,7 +119,7 @@
 			<li><a class="text-white" href="">子ども会員様ログイン</a></li>
 			<li>電車検索: <a class="text-white" href="#">TNSearch</a>
 			</li>
-			<li><a class="text-white" href="#">料金表</a></li>
+			
 		</ul>
 		<p>
 			<small>&copy Train_Net：TN All Rights Reserved.</small>

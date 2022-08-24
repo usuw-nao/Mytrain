@@ -23,7 +23,7 @@ public interface AdultDao {
 	void update2(Integer id)throws Exception;
 
 	// 削除
-	void delete(int id, String login) throws Exception;
+	void delete(Adult adult) throws Exception;
 
 	// 新規登録,追加
 	void insert(Adult adult) throws Exception;

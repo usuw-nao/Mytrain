@@ -8,11 +8,15 @@
 <title>駅長ブログ</title>
 </head>
 <body>
+	<p>
+		<a href="/TrainApp/top.jsp"> <img class="img-thumbnail" width="96"
+			height="27" alt="NT" src="image/tn2.png"></a>
+	</p>
 
 	<h1>ネコ駅長のブログ</h1>
 	<c:forEach items="${blogTopList}" var="blogTop">
-	<table border="3">
-		
+		<table border="3">
+
 			<tr>
 				<th>名前</th>
 				<td><c:out value="${blogTop.name}" /></td>
@@ -33,10 +37,15 @@
 				<th>日にち</th>
 				<td><c:out value="${blogTop.bday}" /></td>
 			</tr>
-	</table>
+		</table>
 	</c:forEach>
 	→
 	<a href="AddBlog">記事を書く</a>
+	<p>
+		<a href="/TrainApp/top.jsp">戻る</a>
+	</p>
+
+
 
 
 

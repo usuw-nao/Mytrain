@@ -13,6 +13,8 @@ import javax.sql.DataSource;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.mysql.cj.conf.ConnectionUrl.Type;
+
 import domain.Adult;
 
 public class AdultDaoImpl implements AdultDao {
@@ -128,12 +130,11 @@ public class AdultDaoImpl implements AdultDao {
 	}
 
 	@Override
-	public void delete(int id, String login) throws Exception {
+	public void delete(Adult adult) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "delete from adult where id=? and login_id=?";
+			String sql = "delete from adult where id=? ";
 			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setInt(1, id);
-			stmt.setString(2, login);
+			stmt.setObject(1, adult.getId(), Types.INTEGER);
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			throw e;
