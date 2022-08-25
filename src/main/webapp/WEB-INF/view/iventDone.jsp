@@ -35,9 +35,9 @@
 	</header>
 	<h1>イベント参加申し込み完了しました</h1>
 
-	<p>参加申し込みありがとうございます。</p>
+	<p>申し込みありがとうございます。</p>
 	<p>
-		確認したい場合は<a href="AdultMypage">マイページ</a>よりお進みください
+		確認したい場合は<a href="AdultMypage">マイページ</a>よりスケジュールにお進みください
 	</p>
 	<footer class="bg-primary">
 		<ul class="list-style-none">

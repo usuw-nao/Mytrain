@@ -32,7 +32,7 @@ public class IventTopServlet extends HttpServlet {
 		try {
 			// イベント情報をDBから取ってきて表示させる
 			IventDao iventDao = DaoFactory.createIventDao();
-			List<Ivent> iventList = iventDao.findAll();
+			List<Ivent> iventList = iventDao.findAll2();
 
 			// 感想をDBから取ってきて表示させる
 			IventMutterDao iventMutterDao = DaoFactory.createIventMutterDao();

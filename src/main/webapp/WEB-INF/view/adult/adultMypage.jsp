@@ -64,9 +64,7 @@
 					<div class="col-md-6 col-lg-4 mb-4">
 						<a href="IventTop" class="btn btn-primary">イベント</a>
 					</div>
-					<div class="col-md-6 col-lg-4 mb-4">
-						<a href="IventMy" class="btn btn-primary">イベント参加予定</a>
-					</div>
+					
 					<div class="col-md-6 col-lg-4 mb-4">
 						<a href="ScheduleTop" class="btn btn-primary">スケジュール</a>
 					</div>

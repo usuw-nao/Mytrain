@@ -54,12 +54,50 @@ public class IventDaoImpl implements IventDao {
 	private Ivent mapToIvent(ResultSet rs) throws Exception {
 		Ivent ivent = new Ivent();
 		ivent.setId(rs.getInt("id"));
+		ivent.setLogin(rs.getString("login"));
 		ivent.setName(rs.getString("name"));
 		ivent.setDetail(rs.getString("detail"));
 		ivent.setPlace(rs.getString("place"));
-		ivent.setDay(rs.getDate("day"));
+		ivent.setDay(rs.getString("day"));
 		return ivent;
 
 	}
 
+	@Override
+	public void insert(Ivent ivent) throws Exception {
+		try {
+			Connection con = ds.getConnection();
+
+			String sql = "insert into ivent values(?,?,?,?,?,?)";
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setObject(1, ivent.getId(), Types.INTEGER);
+			stmt.setString(2, ivent.getLogin());
+			stmt.setString(3, ivent.getName());
+			stmt.setString(4, ivent.getDetail());
+			stmt.setString(5, ivent.getPlace());
+			stmt.setString(6, ivent.getDay());
+
+			stmt.executeUpdate();
+
+		} catch (Exception e) {
+			throw new Exception(e);
+		}
+	}
+
+	@Override
+	public List<Ivent> findAll2() throws Exception {
+		List<Ivent> iventList = new ArrayList<>();
+		try (Connection con = ds.getConnection()) {
+			String sql = "select * from ivent where login is null";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				iventList.add(mapToIvent(rs));
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return iventList;
+	}
 }

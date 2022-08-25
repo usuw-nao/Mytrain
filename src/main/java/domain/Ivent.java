@@ -1,12 +1,14 @@
 package domain;
+
 import java.util.Date;
 
 public class Ivent {
 	private Integer id;
+	private String login;
 	private String name;
 	private String detail;
 	private String place;
-	private Date day;
+	private String day;
 
 	public Integer getId() {
 		return id;
@@ -14,6 +16,14 @@ public class Ivent {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getName() {
@@ -31,7 +41,7 @@ public class Ivent {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-	
+
 	public String getPlace() {
 		return place;
 	}
@@ -40,11 +50,11 @@ public class Ivent {
 		this.place = place;
 	}
 
-	public Date getDay() {
+	public String getDay() {
 		return day;
 	}
 
-	public void setDay(Date day) {
+	public void setDay(String day) {
 		this.day = day;
 	}
 

@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,25 +53,37 @@ public class IventDoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		// 参加するを受け取る？でも受け取るもの何もなくない？ないから
-		// Ivent ivent = (Ivent) request.getAttribute("ivent");
-		// そもそもうけとる必要ある？→ないでｓｙ
-		// 受け取るなら参加するということのもの
-		// いやいや受け取ったらそれをiventMy.jspに反映させる
+
+		// Integer eventId = Integer.parseInt(request.getParameter("id"));
+		// DaoFactory.createIventDao().findById(eventId);
+		// request.setAttribute("eventId", eventId);
 
 		// またそこに参加はできないようにしたい、バリデーションか？
-		try {
 
-			Integer eventId = Integer.parseInt(request.getParameter("id"));
-			DaoFactory.createIventDao().findById(eventId);
-			request.setAttribute("eventId", eventId);
+		// 参加するというデータを受け取る
+		try {
+			String login = request.getParameter("login");
+			String name = request.getParameter("name");
+			String detail = request.getParameter("detail");
+			String place = request.getParameter("place");
+			String day = request.getParameter("day");
 			
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			// セットしてDBに格納する
+			Ivent ivent = new Ivent();
+			ivent.setLogin(login);
+			ivent.setName(name);
+			ivent.setDetail(detail);
+			ivent.setPlace(place);
+			ivent.setDay(day);
+			
+			IventDao iventDao = DaoFactory.createIventDao();
+			iventDao.insert(ivent);
+			
+			
+			
 
-		try {
+		
 			// adultテーブルのiventの回数を一つ増やす
 			Adult adult = (Adult) request.getSession().getAttribute("adult");
 			DaoFactory.createAdultDao().update(adult.getId());

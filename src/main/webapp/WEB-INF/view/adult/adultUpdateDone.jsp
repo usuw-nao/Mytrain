@@ -11,48 +11,54 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<header>
+	<header>
 
 		<a href="/TrainApp/top.jsp"> <img class="img-thumbnail" width="96"
 			height="27" alt="NT" src="image/tn2.png"></a>
-			<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-		<div class="container">
-			<a class="navbar-brand" href="">Train-Net</a>
-			<button class="navbar-toggler" data-bs-toggle="collapse"
-				data-bs-target="#menu">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="menu">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="/TrainApp/top.jsp" class="nav-link">ホーム</a></li>
-					<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
-				</ul>
+		<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+			<div class="container">
+				<a class="navbar-brand" href="">Train-Net</a>
+				<button class="navbar-toggler" data-bs-toggle="collapse"
+					data-bs-target="#menu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a href="/TrainApp/top.jsp"
+							class="nav-link">ホーム</a></li>
+						<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 	</header>
 	<h1>変更を保存しました</h1>
 	<table border="3">
 
 		<tr>
-			<th>住所</th>
-			<td><c:out value="${adult.address }" /></td>
-		</tr>
-		<tr>
-			<th>メールアドレス</th>
-			<td><c:out value="${adult.email }" /></td>
+			<th>ログインID</th>
+			<td><c:out value="${adult.login}" /></td>
 		</tr>
 		<tr>
 			<th>ニックネーム</th>
 			<td><c:out value="${adult.nickName}" /></td>
 		</tr>
+
 		<tr>
-			<th>ログインID</th>
-			<td><c:out value="${adult.login}" /></td>
+			<th>メールアドレス</th>
+			<td><c:out value="${adult.email }" /></td>
 		</tr>
+
+		<tr>
+			<th>住所</th>
+			<td><c:out value="${adult.address }" /></td>
+		</tr>
+		
+
+
 
 	</table>
 
@@ -60,7 +66,7 @@
 	<p>
 		<a href="AdultMypage">戻る</a>
 	</p>
-<footer class="bg-primary">
+	<footer class="bg-primary">
 		<ul class="list-style-none">
 			<li><a class="text-white" href="https://www.p/" target="_blank">TrainNet</a>
 			</li>

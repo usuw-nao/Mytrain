@@ -3,8 +3,8 @@ use mytrains_db;
 create table adult
 (
    id int primary key auto_increment,
-   login_id varchar (30) unique key not null,
-   login_pass varchar (255) not null,
+   login varchar (30) unique key not null,
+   pass varchar (255) not null,
    nick_name varchar (30) not null,
    type_id int not null,
    email varchar (60) unique key not null,
@@ -34,13 +34,14 @@ INSERT INTO adult VALUES
    20220801,
    20221031
 );
-//イベントテーブル作成 create table ivent
+//イベントテーブル作成 
+create table ivent
 (
    id int primary key auto_increment,
    name varchar (30) not null,
    detail varchar (255) not null,
    place varchar (60) not null,
-   day date not null
+   day varchar(20) not null
 );
 insert into ivent values
 (

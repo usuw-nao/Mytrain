@@ -30,9 +30,9 @@ public class AdultDaoImpl implements AdultDao {
 
 		try (Connection con = ds.getConnection()) {
 			String sql = "select  nick_name,email,point,address," + "age, name,ivent,distance,start_date,end_date "
-					+ " from adult where login_id=?";
+					+ " from adult where login=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, "loginId");
+			stmt.setString(1, "login");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				adultList.add(mapToAdult(rs));
@@ -49,12 +49,12 @@ public class AdultDaoImpl implements AdultDao {
 		// １件分取り出す
 		Adult adult = null;
 		try (Connection con = ds.getConnection()) {
-			String sql = "select * from adult where login_id=?";
+			String sql = "select * from adult where login=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, login);
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
-				if (BCrypt.checkpw(pass, rs.getString("login_pass"))) {
+				if (BCrypt.checkpw(pass, rs.getString("pass"))) {
 					adult = mapToAdult(rs);
 				}
 			}
@@ -69,7 +69,7 @@ public class AdultDaoImpl implements AdultDao {
 		Adult adult = new Adult();
 
 		try (Connection con = ds.getConnection()) {
-			String sql = "select login_id, nick_name,email,point,address,"
+			String sql = "select login, nick_name,email,point,address,"
 					+ "age, name,ivent,distance,start_date,end_date " + " from adult where id=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setObject(1, id, Types.INTEGER);
@@ -88,7 +88,7 @@ public class AdultDaoImpl implements AdultDao {
 	@Override
 	public void update(Integer id, String login, String nickName, String email, String address) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "update adult set login_id=?, nick_name=?, email=?, address=? where id=?";
+			String sql = "update adult set login=?, nick_name=?, email=?, address=? where id=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, login);
 			stmt.setString(2, nickName);
@@ -145,7 +145,7 @@ public class AdultDaoImpl implements AdultDao {
 	@Override
 	public void insert(Adult adult) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "insert into adult (login_id,login_pass,nick_name,type_id," + " email,name,address,age)"
+			String sql = "insert into adult (login,pass,nick_name,type_id," + " email,name,address,age)"
 					+ " values(?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
@@ -167,8 +167,8 @@ public class AdultDaoImpl implements AdultDao {
 	private Adult mapToAdult(ResultSet rs) throws Exception {
 		Adult adult = new Adult();
 		adult.setId(rs.getInt("id"));
-		adult.setLogin(rs.getString("login_id"));
-		adult.setPass(rs.getString("login_pass"));
+		adult.setLogin(rs.getString("login"));
+		adult.setPass(rs.getString("pass"));
 		adult.setNickName(rs.getString("nick_name"));
 		adult.setTypeId(rs.getInt("type_id"));
 		adult.setEmail(rs.getString("email"));

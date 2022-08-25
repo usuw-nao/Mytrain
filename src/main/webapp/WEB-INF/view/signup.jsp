@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,33 +13,34 @@
 <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<header>
+	<header>
 
 		<a href="/TrainApp/top.jsp"> <img class="img-thumbnail" width="96"
 			height="27" alt="NT" src="image/tn2.png"></a>
-			<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-		<div class="container">
-			<a class="navbar-brand" href="">Train-Net</a>
-			<button class="navbar-toggler" data-bs-toggle="collapse"
-				data-bs-target="#menu">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="menu">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="/TrainApp/top.jsp" class="nav-link">ホーム</a></li>
-					<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
-				</ul>
+		<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+			<div class="container">
+				<a class="navbar-brand" href="">Train-Net</a>
+				<button class="navbar-toggler" data-bs-toggle="collapse"
+					data-bs-target="#menu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a href="/TrainApp/top.jsp"
+							class="nav-link">ホーム</a></li>
+						<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 	</header>
-<h1>新規登録</h1>
-<form action="" method="post">
-<p>
-名前<input type="text" name="name" placeholder="名前" />
+	<h1>新規登録</h1>
+	<form action="" method="post">
+		<p>
+			名前<input type="text" name="name" placeholder="名前" />
 		</p>
 		<p>
 			ニックネーム<input type="text" name="nick_name" placeholder="ニックネーム" />
@@ -57,10 +58,10 @@
 			タイプ(大人▶︎1：こども▶︎2) <input type="number" min="1" max="2" name="type_id" />
 		</p>
 		<p>
-			ログインID<input type="text" name="login_id" placeholder="ログインID" />
+			ログインID<input type="text" name="login" placeholder="ログインID" />
 		</p>
 		<p>
-			パスワード<input type="password" name="login_pass" placeholder="パスワード">
+			パスワード<input type="password" name="pass" placeholder="パスワード">
 		</p>
 
 		<p>
@@ -71,8 +72,8 @@
 		</p>
 		<p></p>
 
-</form>
-<footer class="bg-primary">
+	</form>
+	<footer class="bg-primary">
 		<ul class="list-style-none">
 			<li><a class="text-white" href="https://www.p/" target="_blank">TrainNet</a>
 			</li>
