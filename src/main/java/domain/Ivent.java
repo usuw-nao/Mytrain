@@ -9,6 +9,7 @@ public class Ivent {
 	private String detail;
 	private String place;
 	private String day;
+	private Date sday;
 
 	public Integer getId() {
 		return id;
@@ -56,6 +57,14 @@ public class Ivent {
 
 	public void setDay(String day) {
 		this.day = day;
+	}
+
+	public Date getSday() {
+		return sday;
+	}
+
+	public void setSday(Date sday) {
+		this.sday = sday;
 	}
 
 }

@@ -13,42 +13,44 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>イベント情報トップ</title>
+<title>イベント情報交換所</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>
-<header>
+	<header>
 
 		<a href="/TrainApp/top.jsp"> <img class="img-thumbnail" width="96"
 			height="27" alt="NT" src="image/tn2.png"></a>
-			<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-		<div class="container">
-			<a class="navbar-brand" href="">Train-Net</a>
-			<button class="navbar-toggler" data-bs-toggle="collapse"
-				data-bs-target="#menu">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="menu">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="/TrainApp/top.jsp" class="nav-link">ホーム</a></li>
-					<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
-				</ul>
+		<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
+			<div class="container">
+				<a class="navbar-brand" href="">Train-Net</a>
+				<button class="navbar-toggler" data-bs-toggle="collapse"
+					data-bs-target="#menu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="menu">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a href="/TrainApp/top.jsp"
+							class="nav-link">ホーム</a></li>
+						<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
+						<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 	</header>
 
 
 
-	<h1>イベント情報</h1>
-	<h2>お知らせ</h2>
+	<h1>イベント情報交換所</h1>
 	<br>
-	<h2>開催予定イベント</h2>
+	<h2>開催イベント</h2>
+	<p>みんなの感想を読んで気になったら参加しよう☆彡</p>
+	<p>参加にはログインIDが必要です</p>
 	<table border="1">
 		<tr>
 			<th>NO.</th>
@@ -70,6 +72,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		</c:forEach>
 
 	</table>
+	<br>
 	<h1>みんなの感想☆彡</h1>
 	<p>イベントに参加した感想を自由に教えてね！</p>
 	<form action="/TrainApp/IventTop" method="post">
@@ -93,7 +96,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 			<input type="submit" value="投稿する">
 		</p>
 	</form>
-	
+
 	<hr color="green">
 
 
@@ -102,10 +105,11 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 
 		<p>
 			<c:out value="${iventMutter.id}" />
+			： お名前▶
 			<c:out value="${iventMutter.name}" />
-			:
+			さん :参加イベント名▶
 			<c:out value="${iventMutter.iventName}" />
-			:
+			:感想▶
 			<c:out value="${iventMutter.text}" />
 		</p>
 
@@ -113,10 +117,10 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 	<p>
 		<a href="AdultMypage">マイページに戻る</a>
 	</p>
-<footer class="bg-primary">
+	<footer class="bg-primary">
 		<ul class="list-style-none">
-			<li><a class="text-white" href="/TrainApp/top.jsp" target="_blank">TrainNet</a>
-			</li>
+			<li><a class="text-white" href="/TrainApp/top.jsp"
+				target="_blank">TrainNet</a></li>
 			<li><a class="text-white" href="AdultLogin">大人会員様ログイン</a></li>
 			<li><a class="text-white" href="">子ども会員様ログイン</a></li>
 			<li>電車検索: <a class="text-white" href="#">TNSearch</a>

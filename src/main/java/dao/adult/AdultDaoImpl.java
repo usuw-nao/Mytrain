@@ -145,8 +145,8 @@ public class AdultDaoImpl implements AdultDao {
 	@Override
 	public void insert(Adult adult) throws Exception {
 		try (Connection con = ds.getConnection()) {
-			String sql = "insert into adult (login,pass,nick_name,type_id," + " email,name,address,age)"
-					+ " values(?,?,?,?,?,?,?,?)";
+			String sql = "insert into adult (login,pass,nick_name,type_id," + " email,name,address,age,"
+					+ " point,ivent )" + " values(?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1, adult.getLogin());
@@ -157,6 +157,9 @@ public class AdultDaoImpl implements AdultDao {
 			stmt.setString(6, adult.getName());
 			stmt.setString(7, adult.getAddress());
 			stmt.setObject(8, adult.getAge(), Types.INTEGER);
+			stmt.setObject(9, adult.getPoint(), Types.INTEGER);
+			stmt.setObject(10, adult.getIvent(), Types.INTEGER);
+
 			stmt.executeUpdate();
 		} catch (Exception e) {
 			throw e;
@@ -175,8 +178,8 @@ public class AdultDaoImpl implements AdultDao {
 		adult.setName(rs.getString("name"));
 		adult.setAddress(rs.getString("address"));
 		adult.setAge(rs.getInt("age"));
-		adult.setIvent(rs.getInt("ivent"));
 		adult.setPoint(rs.getInt("point"));
+		adult.setIvent(rs.getInt("ivent"));
 		adult.setDistance(rs.getString("distance"));
 		adult.setStartDate(rs.getDate("start_date"));
 		adult.setEndDate(rs.getDate("end_date"));

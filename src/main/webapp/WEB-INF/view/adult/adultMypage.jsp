@@ -32,7 +32,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a href="/TrainApp/top.jsp" class="nav-link">ホーム</a></li>
+					<li class="nav-item"><a href="/TrainApp/top.jsp"
+						class="nav-link">ホーム</a></li>
 					<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
 					<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
 					<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
@@ -62,12 +63,14 @@
 					</div>
 
 					<div class="col-md-6 col-lg-4 mb-4">
-						<a href="IventTop" class="btn btn-primary">イベント</a>
-					</div>
-					
-					<div class="col-md-6 col-lg-4 mb-4">
 						<a href="ScheduleTop" class="btn btn-primary">スケジュール</a>
 					</div>
+
+					<div class="col-md-6 col-lg-4 mb-4">
+						<a href="IventTop" class="btn btn-primary">みんなのイベント情報交換所</a>
+					</div>
+
+
 				</div>
 				<!-- .row メニュー内での横並び -->
 			</div>
@@ -111,13 +114,13 @@
 
 	<footer class="bg-primary">
 		<ul class="list-style-none">
-			<li><a class="text-white" href="/TrainApp/top.jsp" target="_blank">TrainNet</a>
-			</li>
+			<li><a class="text-white" href="/TrainApp/top.jsp"
+				target="_blank">TrainNet</a></li>
 			<li><a class="text-white" href="AdultLogin">大人会員様ログイン</a></li>
 			<li><a class="text-white" href="">子ども会員様ログイン</a></li>
 			<li>電車検索: <a class="text-white" href="#">TNSearch</a>
 			</li>
-			
+
 		</ul>
 		<p>
 			<small>&copy Train_Net：TN All Rights Reserved.</small>

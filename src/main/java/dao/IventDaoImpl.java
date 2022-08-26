@@ -59,6 +59,7 @@ public class IventDaoImpl implements IventDao {
 		ivent.setDetail(rs.getString("detail"));
 		ivent.setPlace(rs.getString("place"));
 		ivent.setDay(rs.getString("day"));
+		ivent.setSday(rs.getDate("sday"));
 		return ivent;
 
 	}
@@ -68,7 +69,7 @@ public class IventDaoImpl implements IventDao {
 		try {
 			Connection con = ds.getConnection();
 
-			String sql = "insert into ivent values(?,?,?,?,?,?)";
+			String sql = "insert into ivent values(?,?,?,?,?,?,now())";
 			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setObject(1, ivent.getId(), Types.INTEGER);
@@ -77,6 +78,7 @@ public class IventDaoImpl implements IventDao {
 			stmt.setString(4, ivent.getDetail());
 			stmt.setString(5, ivent.getPlace());
 			stmt.setString(6, ivent.getDay());
+		
 
 			stmt.executeUpdate();
 
@@ -91,6 +93,26 @@ public class IventDaoImpl implements IventDao {
 		try (Connection con = ds.getConnection()) {
 			String sql = "select * from ivent where login is null";
 			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				iventList.add(mapToIvent(rs));
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return iventList;
+	}
+
+	@Override
+	public List<Ivent> findByLoginAndDay(String login, String day) throws Exception {
+		List<Ivent> iventList = new ArrayList<>();
+		try (Connection con = ds.getConnection()) {
+			String sql = "SELECT * FROM ivent "
+					+ " WHERE login = ?"
+					+ " AND day = ?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, login);
+			stmt.setString(2, day);			
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				iventList.add(mapToIvent(rs));

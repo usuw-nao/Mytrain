@@ -70,7 +70,8 @@
 		<p>
 			<input type="submit" value="新規登録">
 		</p>
-		<p></p>
+		<input type="hidden" name="ivent" value="0">
+		<input type="hidden" name="point" value="10">
 
 	</form>
 	<footer class="bg-primary">

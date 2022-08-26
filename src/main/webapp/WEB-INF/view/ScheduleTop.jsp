@@ -72,11 +72,12 @@
 	</header>
 
 
-	<form action="">
+	<form action="" >
 
 		<p>
 			日付を選択してください。 <input type="text" name="day" id="datepicker">
 		</p>
+		<input type="hidden" name="login" value="${adult.login }">
 		<input type="submit" value="決定">
 	</form>
 
@@ -86,6 +87,7 @@
 	<h2>お知らせ</h2>
 	<p>～現在はありません～</p>
 	<br>
+	
 	<h2>開催予定イベント</h2>
 	<table border="1">
 		<tr>
@@ -112,7 +114,7 @@
 
 	<hr color="blue">
 
-	<h2>参加予定イベント</h2>
+	<h2>${adult.name}さんの参加予定イベント</h2>
 	<table border="1">
 		<tr>
 			<th>NO.</th>

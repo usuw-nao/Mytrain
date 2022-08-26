@@ -37,6 +37,7 @@ public class IventDoServlet extends HttpServlet {
 			request.setAttribute("day", ivent.getDay());
 			request.setAttribute("place", ivent.getPlace());
 			request.setAttribute("detail", ivent.getDetail());
+			request.setAttribute("sday", ivent.getSday());
 
 			request.getRequestDispatcher("/WEB-INF/view/iventDo.jsp").forward(request, response);
 

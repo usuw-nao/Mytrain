@@ -14,6 +14,9 @@ public interface IventDao {
 	void insert(Ivent ivent) throws Exception;
 	
 	//loginがnullのだけ出す
-	List<Ivent>findAll2()throws Exception;
+	List<Ivent> findAll2()throws Exception;
+	
+	// 参加イベントの取得(ログインIDと日付をもとにイベントを取得)
+	List<Ivent> findByLoginAndDay(String login, String day)  throws Exception;
 
 }

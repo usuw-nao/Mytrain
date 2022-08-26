@@ -45,8 +45,15 @@ public class SignupServlet extends HttpServlet {
 		String login = request.getParameter("login");
 		String pass = request.getParameter("pass");
 		String confpass = request.getParameter("confpass");
+		
 		String sage = request.getParameter("age");
 		Integer age = Integer.parseInt(sage);
+		
+		String sivent = request.getParameter("ivent");
+		Integer ivent = Integer.parseInt(sivent);
+		
+		String spoint = request.getParameter("point");
+		Integer point = Integer.parseInt(spoint);
 
 		// バリデーション
 
@@ -79,6 +86,8 @@ public class SignupServlet extends HttpServlet {
 			adult.setAge(age);
 			adult.setTypeId(typeId);
 			adult.setPass(pass);
+			adult.setPoint(point);
+			adult.setIvent(ivent);
 
 			AdultDao adultDao = DaoFactory.createAdultDao();
 			adultDao.insert(adult);
