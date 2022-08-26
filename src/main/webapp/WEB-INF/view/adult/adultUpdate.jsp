@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +37,7 @@
 		</nav>
 	</header>
 	<h1>登録情報の変更</h1>
-	<p>${adult.name }さん</p>
+	<h2>${adult.name }さん</h2>
 
 	<form action="" method="post">
 
@@ -43,23 +45,50 @@
 
 
 		<p>
+			<c:if test="${not empty loginError}">
+				<p>
+					※
+					<c:out value="${loginError}" />
+				</p>
+			</c:if>
 			ログインID <input type="text" name="login">
 		</p>
 		<p>
+			<p>
+			<c:if test="${not empty nickNameError}">
+				<p>※<c:out value="${nickNameError}" />
+				</p>
+        </c:if>
 			ニックネーム <input type="text" name="nick_name">
 		</p>
+		
 
+		
 		<p>
+		<p>
+			<c:if test="${not empty emailError}">
+        <p>※<c:out value="${emailError}" />
+				</p>
+        </c:if>
 			メールアドレス <input type="email" name="email">
 		</p>
+		
+		
 		<p>
+		<p>
+			<c:if test="${not empty addressError}">
+        <p>※<c:out value="${addressError}" />
+				</p>
+        </c:if>
 			住所 <input type="text" name="address">
 		</p>
+		
 		<input type="hidden" name="id" value="${adult.id}">
 
 
 
 
+		
 		<p>
 			<input type="submit" value="完了する">
 		</p>

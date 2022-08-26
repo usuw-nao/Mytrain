@@ -39,29 +39,55 @@
 	</header>
 	<h1>新規登録</h1>
 	<form action="" method="post">
+	<c:if test="${not empty nameError}">
+		<p>※<c:out value="${nameError}" /></p>
+		</c:if>
 		<p>
-			名前<input type="text" name="name" placeholder="名前" />
+			名前<input type="text" name="name" value="<c:out value="${name}" />" placeholder="名前" />
+		</p>
+		
+		<p>
+		<c:if test="${not empty nickNameError}">
+		<p>※<c:out value="${nickNameError}" /></p>
+		</c:if>
+			ニックネーム<input type="text" name="nick_name" value="<c:out value="${nickName}" />" placeholder="ニックネーム" />
 		</p>
 		<p>
-			ニックネーム<input type="text" name="nick_name" placeholder="ニックネーム" />
+		<c:if test="${not empty ageError}">
+		<p>※<c:out value="${ageError}" /></p>
+		</c:if>
+			年齢<input type="number" name="age" value="<c:out value="${age}" />" placeholder="年齢" />
 		</p>
 		<p>
-			年齢<input type="number" name="age" placeholder="年齢" />
+		<c:if test="${not empty addressError}">
+		<p>※<c:out value="${addressError}" /></p>
+		</c:if>
+			住所<input type="text" name="address" value="<c:out value="${address}" />" placeholder="住所" />
 		</p>
 		<p>
-			住所<input type="text" name="address" placeholder="住所" />
+		<c:if test="${not empty emailError}">
+		<p>※<c:out value="${emailError}" /></p>
+		</c:if>
+			メールアドレス<input type="email" name="email" value="<c:out value="${email}" />" placeholder="email" />
+		</p>
+		
+		<p>
+		<c:if test="${not empty typeIdError}">
+		<p>※<c:out value="${typeIdError}" /></p>
+		</c:if>
+			タイプ(大人▶︎1：こども▶︎2) <input type="number" min="1" max="2" name="type_id" value="<c:out value="${typeId}" />" />
 		</p>
 		<p>
-			メールアドレス<input type="email" name="email" placeholder="email" />
+		<c:if test="${not empty loginError}">
+		<p>※<c:out value="${loginError}" /></p>
+		</c:if>
+			ログインID<input type="text" name="login" value="<c:out value="${login}" />" placeholder="ログインID" />
 		</p>
 		<p>
-			タイプ(大人▶︎1：こども▶︎2) <input type="number" min="1" max="2" name="type_id" />
-		</p>
-		<p>
-			ログインID<input type="text" name="login" placeholder="ログインID" />
-		</p>
-		<p>
-			パスワード<input type="password" name="pass" placeholder="パスワード">
+		<c:if test="${not empty passError}">
+		<p>※<c:out value="${passError}" /></p>
+		</c:if>
+			パスワード<input type="password" name="pass" value="<c:out value="${pass}" />" placeholder="パスワード">
 		</p>
 
 		<p>

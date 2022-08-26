@@ -75,9 +75,8 @@
 	<form action="" >
 
 		<p>
-			日付を選択してください。 <input type="text" name="day" id="datepicker">
+			日付を選択してください。 <input type="text" name="sday" id="datepicker">
 		</p>
-		<input type="hidden" name="login" value="${adult.login }">
 		<input type="submit" value="決定">
 	</form>
 

@@ -30,72 +30,41 @@ public class ScheduleTopServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// イベント情報をカレンダー下に表示させる
-	try {
+		try {
 			IventDao iventDao = DaoFactory.createIventDao();
 			List<Ivent> iventList = iventDao.findAll2();
 			request.setAttribute("iventList", iventList);
-
-			// Getパラメータとして日付情報がある場合
-			String day = request.getParameter("day");
-			String login = request.getParameter("login");
-			
-	if (day != null) {
-				Adult adult = (Adult) request.getSession().getAttribute("adult");
-		List<Ivent> planList = 
-		DaoFactory.createIventDao().findByLoginAndDay(adult.getLogin(), day);
-		if(adult.getLogin() ==login) {
-			// イベントをリクエストスコープに格納
-			request.setAttribute("planList", planList);
-			
-		}
-			// もし日付がある場合は、日付に対応する参加イベントを取得
-			//if (rday != null) {
-				// 選択された日付がイベントの日だったらそのイベントを出す
-				//List<Ivent> planList = new ArrayList<>();
-				// equalsしたいけどivent.getDayはdate型だからこれを文字列に変える
-				//SimpleDateFormat sdf = new SimpleDateFormat("y-MM-dd");
-				//for (Ivent ivent : iventList) {
-					//if (sdf.format(ivent.getDay()).equals(rday)) {
-					//	planList.add(ivent);
-					//}
-
-					//request.setAttribute("planList", planList);
-
-					// 何も予定がなかったら「予定はありません」
-					//if (planList.size() == 0) {
-					//	request.setAttribute("planMessage", "予定はありません");
-
-					//}
-				}
-				request.getRequestDispatcher("/WEB-INF/view/ScheduleTop.jsp").forward(request, response);
-			//}
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		// Getパラメータとして日付情報がある場合
+		// GETパラメータとして日付を受け取る
+		String sday = request.getParameter("sday");
 
-		try {
-			String rday = request.getParameter("rday");
-			if (rday != null) {
+		// もし日付がある場合は、日付に対応する参加イベントを取得
+		if (sday != null) {
+			try {
 				Adult adult = (Adult) request.getSession().getAttribute("adult");
-				List<Ivent> iventList = DaoFactory.createIventDao().findByLoginAndDay(adult.getLogin(), rday);
+				List<Ivent> planList = DaoFactory.createIventDao().findByLoginAndDay(adult.getLogin(), sday);
 				// イベントをリクエストスコープに格納
-				request.setAttribute("iventList", iventList);
-				response.sendRedirect(request.getContextPath() + "/ScheduleTop");
-
+				request.setAttribute("planList", planList);
+				
+				
+			}else {
+				request.setAttribute("ErrorM","参加予定イベントはありません");
+				request.getRequestDispatcher("/WEB-INF/view/ScheduleTop.jsp")
+				.forward(request, response);
+			return;
+				
+			
+			
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
+		
+		request.getRequestDispatcher("/WEB-INF/view/ScheduleTop.jsp").forward(request, response);
 	}
 
 }

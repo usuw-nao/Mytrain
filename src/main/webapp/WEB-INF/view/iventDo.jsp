@@ -56,7 +56,8 @@
 		</p>
 
 		<p>参加する際はログインIDを入力してください</p>
-		<p>ログインID:<input type="text" name="login" ></p>
+		<p>ログインID:
+		<input type="text" name="login" value="<c:out value="${login}" />"></p>
 			<p><input type="submit" value="参加する">
 		</p>
 

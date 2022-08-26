@@ -63,6 +63,7 @@ public class IventDoServlet extends HttpServlet {
 
 		// 参加するというデータを受け取る
 		try {
+			
 			String login = request.getParameter("login");
 			String name = request.getParameter("name");
 			String detail = request.getParameter("detail");
@@ -83,7 +84,6 @@ public class IventDoServlet extends HttpServlet {
 			
 			
 			
-
 		
 			// adultテーブルのiventの回数を一つ増やす
 			Adult adult = (Adult) request.getSession().getAttribute("adult");

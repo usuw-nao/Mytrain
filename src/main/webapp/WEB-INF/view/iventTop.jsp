@@ -97,18 +97,27 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		</p>
 	</form>
 
-	<hr color="green">
+	<hr color=blue>
 
 
 	<c:forEach var="iventMutter" items="${iventMutterList}">
 
 
 		<p>
-			<c:out value="${iventMutter.id}" />
+			<!--<c:out value="${iventMutter.id}" />
+			<c:if test="${not empty nameError}">
+				<p>
+					※<c:out value="${nameError}" />
+				</p>
+			</c:if>-->
 			： お名前▶
 			<c:out value="${iventMutter.name}" />
-			さん :参加イベント名▶
+			さん 
+			:参加イベント名▶
 			<c:out value="${iventMutter.iventName}" />
+
+			<!--<c:if test="${not empty textError}"><p>※
+			<c:out value="${textError}" /></p></c:if>-->
 			:感想▶
 			<c:out value="${iventMutter.text}" />
 		</p>
