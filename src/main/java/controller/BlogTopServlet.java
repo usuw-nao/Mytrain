@@ -29,7 +29,7 @@ public class BlogTopServlet extends HttpServlet {
 		try {
 			BlogTopDao blogTopDao = DaoFactory.createBlogTopDao();
 			List<BlogTop> blogTopList = blogTopDao.findAll();
-			System.out.println(blogTopList);
+			
 
 			request.setAttribute("blogTopList", blogTopList);
 			request.getRequestDispatcher("/WEB-INF/view/blogTop.jsp").forward(request, response);

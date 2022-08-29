@@ -13,6 +13,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>イベント情報交換所</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
@@ -44,13 +45,11 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		</nav>
 	</header>
 
-
-
-	<h1>イベント情報交換所</h1>
-	<br>
+ <div class="text-primary">
+<h1>イベント情報交換所</h1>
 	<h2>開催イベント</h2>
 	<p>みんなの感想を読んで気になったら参加しよう☆彡</p>
-	<p>参加にはログインIDが必要です</p>
+	<p>参加にはログインIDが必要です</p></div>
 	<table border="1">
 		<tr>
 			<th>NO.</th>
@@ -72,10 +71,12 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		</c:forEach>
 
 	</table>
+	
 	<br>
+	<div class="p-3 mb-2 bg-primary bg-gradient text-white">
 	<h1>みんなの感想☆彡</h1>
 	<p>イベントに参加した感想を自由に教えてね！</p>
-	<form action="/TrainApp/IventTop" method="post">
+	<form action="/TrainApp/IventTop" method="post" class="form-control w-50 ">
 		<p>
 			お名前<input type="text" name="name" value="${adult.nickName }">さん
 		</p>
@@ -123,6 +124,7 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 		</p>
 
 	</c:forEach>
+	</div>
 	<p>
 		<a href="AdultMypage">マイページに戻る</a>
 	</p>

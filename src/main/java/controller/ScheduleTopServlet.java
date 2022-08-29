@@ -43,28 +43,24 @@ public class ScheduleTopServlet extends HttpServlet {
 		String sday = request.getParameter("sday");
 
 		// もし日付がある場合は、日付に対応する参加イベントを取得
-		if (sday != null) {
-			try {
+		try {
+			if (sday != null) {
+
 				Adult adult = (Adult) request.getSession().getAttribute("adult");
 				List<Ivent> planList = DaoFactory.createIventDao().findByLoginAndDay(adult.getLogin(), sday);
 				// イベントをリクエストスコープに格納
 				request.setAttribute("planList", planList);
-				
-				
-			}else {
-				request.setAttribute("ErrorM","参加予定イベントはありません");
-				request.getRequestDispatcher("/WEB-INF/view/ScheduleTop.jsp")
-				.forward(request, response);
-			return;
-				
-			
-			
-			} catch (Exception e) {
-				e.printStackTrace();
+				request.getRequestDispatcher("/WEB-INF/view/ScheduleTop.jsp").forward(request, response);
+
+			} else {
+				request.setAttribute("ErrorM", "参加予定イベントはありません");
+				request.getRequestDispatcher("/WEB-INF/view/ScheduleTop.jsp").forward(request, response);
+				return;
 			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		request.getRequestDispatcher("/WEB-INF/view/ScheduleTop.jsp").forward(request, response);
 	}
 
 }

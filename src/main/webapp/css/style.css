@@ -1,7 +1,16 @@
 @charset "UTF-8";
 
+.text-primary{
+	 height:60px;
+  display:table;
+  text-align:center;
+	background-color:red;
+	
+}
 
-
+p{
+	text-align:center;
+}
 
 .header-outer {
 height: 300px;
