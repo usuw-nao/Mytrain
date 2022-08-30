@@ -23,11 +23,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a href="/TrainApp/top.jsp" class="nav-link">ホーム</a></li>
-					<li class="nav-item"><a href="" class="nav-link active">切符表</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">フォトギャラリー</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">駅長ブログ</a></li>
-					<li class="nav-item"><a href="search.html" class="nav-link">お問い合わせ</a></li>
+					<li class="nav-item"><a href="/TrainApp/top.jsp"
+						class="nav-link">ホーム</a></li>
+					<li class="nav-item"><a href="PhotoTop" class="nav-link">フォトギャラリー</a></li>
+					<li class="nav-item"><a href="BlogTop" class="nav-link">駅長ブログ</a></li>
+					<li class="nav-item"><a href="Inf" class="nav-link">お問い合わせ</a></li>
 				</ul>
 			</div>
 		</div>

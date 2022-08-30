@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.DaoFactory;
+import dao.adult.AdultDao;
+import domain.Adult;
+
 /**
  * Servlet implementation class AdultLogout
  */
@@ -27,8 +31,30 @@ public class AdultLogout extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		try {
+			String login = request.getParameter("login");
+			String pass = request.getParameter("pass");
+			AdultDao adultDao = DaoFactory.createAdultDao();
+			Adult adult = adultDao.findByLoginAndPass(login, pass);
+			if (adult != null) {
+				
+				request.getSession().setAttribute("adult", adult);
+				response.sendRedirect(request.getContextPath() + "/AdultMypage");
+				
+			} else {
+				request.setAttribute("error", true);
+				request.getRequestDispatcher("/WEB-INF/view/adult/adultLogin.jsp").forward(request, response);
+			}
+		} catch (Exception e) {
+			throw new ServletException(e);
+
+		}
+		
+		
+		
+		
+		
 	}
 
 }

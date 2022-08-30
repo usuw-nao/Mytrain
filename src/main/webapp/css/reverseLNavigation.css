@@ -1,0 +1,83 @@
+@charset "UTF-8";
+*{
+	outline: 1px splid aqua;
+}
+ul{
+	list-style-type:none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+.center-container{
+	min-width: 700px;
+max-width: 980px;
+margin: 0 auto;
+}
+
+
+
+header, footer{
+	background-color: #514dfd;
+	color: #fff;
+}
+
+header{
+	padding: 20px 0 30px;
+}
+ header a{
+ color: #fff;
+}
+header .flex-container{
+	justify-content: space-between;
+	align-items: baseline;
+}
+nav ul{
+	justify-content:space-between;
+	width:400px;
+}
+nav li{
+	text-align: center;
+}
+.hero{
+	font-size:2rem;
+	background-image: url(../image/ekityouneko.png);
+	object-fit: cover; 
+	background-size:cover;
+	height: 200px;
+	padding-top: 120px;
+	padding-left:30px;
+	margin-top: 20px;
+}
+img{
+	
+	object-fit: cover; 
+}
+
+footer{
+	text-align:center;
+	padding: 20px 0;
+	margin-top: 30px;
+}
+
+
+
+main{
+	
+	
+	margin-top:30px;
+}
+
+main > .flex-container{
+	justify-content: space-between;
+}
+
+.content{
+	flex: 1;
+	background-color: #eee;
+	margin-left:10px;
+	font-family:Helvetica,Arial,"ヒラギノ角ゴ Pro W3",
+	"Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+}
+

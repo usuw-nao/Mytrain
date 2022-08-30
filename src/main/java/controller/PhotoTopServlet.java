@@ -39,7 +39,6 @@ public class PhotoTopServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
 		
 		//name属性がupfileのファイルをPartオブジェクトとして取得
 		Part part=request.getPart("upfile");

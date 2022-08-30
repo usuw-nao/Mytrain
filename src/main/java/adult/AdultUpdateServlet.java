@@ -34,7 +34,6 @@ public class AdultUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		
 		// フォームでの入力値の取得
 		String address = request.getParameter("address");
