@@ -6,7 +6,7 @@
 ***
 ## 画面遷移図
 ***
-![画面遷移図](/C:/Users/zd2L03/Desktop/gamrnzu.png)
+![gamrnzu](https://user-images.githubusercontent.com/103614230/187592427-35daf192-b7cb-480f-9727-db5c0ced62cd.png)
 
 ***
 ## ページ構成 
