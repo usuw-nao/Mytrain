@@ -16,7 +16,6 @@ String errorMsg = (String) request.getAttribute("errorMsg");
 
 <title>イベント情報交換所</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>

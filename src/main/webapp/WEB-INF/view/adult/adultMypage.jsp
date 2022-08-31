@@ -78,7 +78,7 @@
 			<!-- クイズ -->
 			<div class="col-lg-4">
 				<h1>ようこそ</h1>
-				<h2>１日1回クイズに答えて１０ポイント</h2>
+				<h2>クイズに答えて１０ポイント</h2>
 				<form action="" method="post">
 					<c:forEach items="${AQList}" var="adultQuiz">
 						<p>

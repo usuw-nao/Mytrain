@@ -43,9 +43,10 @@
 			</div>
 		</div>
 	</nav>
-<h3>天気を確認</h3>
+<h4 class="col-12 col-md-2 text-center pt-3">天気を確認</h4>
 <div id="weather-info" class="container mt-3">
     <div id="area-buttons" class="mb-4">
+    <a class="btn btn-info" href="/TrainApp/top.jsp" type="button" >クリア</a>
         <!-- 地域ボタン -->
     </div>
     <!-- 1 地域、3 日分の天気情報 -->
